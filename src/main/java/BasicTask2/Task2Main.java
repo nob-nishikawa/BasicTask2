@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -41,11 +39,9 @@ public class Task2Main {
   }
 
   public static List<Student> inputInitialValue() {
-//    Path filePath = Paths.get("InitialData.csv");
     String filePath = "InitialData.csv";
     List<Student> studentList = new ArrayList<>();
 
-//    try (Stream<String> lines = Files.lines(filePath)) {
     try (InputStream is = Task2Main.class.getClassLoader().getResourceAsStream(filePath)) {
       BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
       {
@@ -76,11 +72,4 @@ public class Task2Main {
     return studentList;
   }
 
-  public static void OutputStudentData(Student student) {
-    Path filePath = Paths.get("StudentData.csv");
-
-    List<Student> studentsList = new ArrayList<>();
-
-
-  }
 }
